@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+}
+
+group 'com.api.assessment'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'org.testng', name: 'testng', version: '7.3.0'
+    compile group: 'io.rest-assured', name: 'rest-assured', version: '4.0.0'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.10.2'
+    compile group: 'com.fasterxml.jackson.module', name: 'jackson-module-afterburner', version: '2.9.8'
+    compile group: 'org.projectlombok', name: 'lombok', version: '1.18.16'
+    annotationProcessor "org.projectlombok:lombok:1.18.16"
+    testImplementation 'io.cucumber:cucumber-java:6.8.1'
+    testImplementation 'io.cucumber:cucumber-junit:6.8.1'
+}
+compileTestJava {
+    sourceCompatibility = '1.8'
+    targetCompatibility = '1.8'
+}
+
+configurations {
+    cucumberRuntime {
+        extendsFrom testImplementation
+    }
+}
+
+task cucumberTests(type: Test) {
+    include '**/Runner*'
+}

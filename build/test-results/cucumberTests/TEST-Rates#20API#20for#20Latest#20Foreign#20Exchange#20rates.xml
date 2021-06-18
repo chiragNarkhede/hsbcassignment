@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Rates API for Latest Foreign Exchange rates" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-06-18T07:08:40" hostname="Chirags-MacBook-Pro.local" time="1.852">
+  <properties/>
+  <testcase name="Verify rates API response status" classname="Rates API for Latest Foreign Exchange rates" time="1.852"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
