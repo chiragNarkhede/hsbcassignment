@@ -11,6 +11,7 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
+    implementation group: 'info.cukes', name: 'cucumber-java8', version: '1.2.5'
     testCompile group: 'org.testng', name: 'testng', version: '7.3.0'
     compile group: 'io.rest-assured', name: 'rest-assured', version: '4.0.0'
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.10.2'
@@ -33,4 +34,7 @@ configurations {
 
 task cucumberTests(type: Test) {
     include '**/Runner*'
+}
+test {
+    systemProperty "cucumber.options", System.getProperty("cucumber.options")
 }

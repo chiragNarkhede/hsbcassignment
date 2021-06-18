@@ -3,7 +3,10 @@ import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "src/test/resources/Features")
+@CucumberOptions(
+        plugin = {"pretty", "html:results/cucumber"},
+        features = "src/test/resources/Features"
+        )
 public class Runner {
 
 }

@@ -1,19 +1,33 @@
 package com.exchange.rateapi.api.latestDate;
 
-import com.exchange.rateapi.utils.CommonUtils;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import static io.restassured.RestAssured.given;
 
 public class LatestDateEndpoint {
 
-    public LatestDateResponse getLatestDateResponse() {
+    // Get Latest date Response
+    public LatestDateResponse getLatestDateResponse(String URL , String accessKey) {
         Response response = given()
                 .contentType(ContentType.JSON)
-                .queryParam("access_key", "3ce48236bc1f8785998044e3218dba90")
-                .get(CommonUtils.getLatestExchageRateURL());
+                .queryParam("access_key", accessKey)
+                .get(URL);
         LatestDateResponse latestDateResponse = response.as(LatestDateResponse.class);
         latestDateResponse.setHttpStatusCode(response.getStatusCode());
         return latestDateResponse;
     }
+
+    // Get Latest date Response with Country code
+    public LatestDateResponse getResponseAsPerSymbol(String url ,String symbol,String accessKey) {
+        Response response = given()
+                .contentType(ContentType.JSON)
+                .queryParam("access_key", accessKey)
+                .queryParam("symbols",symbol)
+                .get(url);
+
+        LatestDateResponse latestDateResponse = response.as(LatestDateResponse.class);
+        latestDateResponse.setHttpStatusCode(response.getStatusCode());
+        return latestDateResponse;
+    }
+
 }
