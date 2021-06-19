@@ -18,7 +18,7 @@ dependencies {
     compile group: 'com.fasterxml.jackson.module', name: 'jackson-module-afterburner', version: '2.9.8'
     compile group: 'org.projectlombok', name: 'lombok', version: '1.18.16'
     annotationProcessor "org.projectlombok:lombok:1.18.16"
-    testImplementation 'io.cucumber:cucumber-java:6.8.1'
+    testImplementation 'io.cucumber:cucumber-java:6.10.4'
     testImplementation 'io.cucumber:cucumber-junit:6.8.1'
 }
 compileTestJava {
@@ -34,7 +34,9 @@ configurations {
 
 task cucumberTests(type: Test) {
     include '**/Runner*'
+
 }
 test {
+    systemProperty "cucumber.filter.tags", System.getProperty("cucumber.filter.tags")
     systemProperty "cucumber.options", System.getProperty("cucumber.options")
 }
