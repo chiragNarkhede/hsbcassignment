@@ -8,14 +8,15 @@ import static io.restassured.RestAssured.given;
 
 public class SpecificDateEndpoint {
 
-    public LatestDateResponse getSpecificDateResponse(String URL) {
+    public SpecificDateResponse getSpecificDateResponse(String URL, String date,String accessKey) {
+        String url = URL.concat(date);
+        System.out.println(url);
         Response response = given()
                 .contentType(ContentType.JSON)
-                .queryParam("access_key", "3ce48236bc1f8785998044e3218dba90")
-                .get(URL);
-        LatestDateResponse latestDateResponse = response.as(LatestDateResponse.class);
-        latestDateResponse.setHttpStatusCode(response.getStatusCode());
-        return latestDateResponse;
+                .queryParam("access_key", accessKey)
+                .get(url);
+        SpecificDateResponse specificDateResponse = response.as(SpecificDateResponse.class);
+        specificDateResponse.setHttpStatusCode(response.getStatusCode());
+        return specificDateResponse;
     }
-
 }
