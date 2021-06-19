@@ -16,15 +16,18 @@ API documentation can be found at https://exchangeratesapi.io/documentation/
 
 #### Execution
 To run **Unit test** use below command.
+
 `gradle test -Dcucumber.filter.tags="@smoke"`
 
 To run all tests use below command.
+
 `gradle test -Dcucumber.filter.tags="@regression"`
 
 
 
 #### Report Generation
 Report can be found at below path post execution
+
 `/build/reports/tests/cucumberTests/index.html`
 
 #### Note 
