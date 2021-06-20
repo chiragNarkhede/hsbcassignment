@@ -1,5 +1,6 @@
-package com.exchange.rateapi.api.latestDate;
+package com.exchange.rateapi.client;
 
+import com.exchange.rateapi.entity.LatestDateResponse;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import static io.restassured.RestAssured.given;

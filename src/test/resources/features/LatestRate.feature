@@ -4,11 +4,8 @@ Feature: Rates API for Latest Foreign Exchange rates
   Background:
     Given the rate API is available
   @smoke @regression
-  Scenario: Verify rates API response status
+  Scenario: Verify rates API response status and success status
     Then the response status code should be 200
-
-  @regression
-  Scenario: Verify rates API success status
     Then success status should be true
 
   @regression
@@ -20,4 +17,8 @@ Feature: Rates API for Latest Foreign Exchange rates
     And user entered incorrect API
     Then user should received error message
 
+  @regression
+  Scenario: Verify rate API response for incorrect filter
+    Then the exchange rate API should through error for incorrect symbol
+    Then the exchange rate API should through error for empty symbol
 

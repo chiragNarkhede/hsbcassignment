@@ -1,6 +1,6 @@
-package com.exchange.rateapi.api.specificDate;
+package com.exchange.rateapi.client;
 
-import com.exchange.rateapi.api.latestDate.LatestDateResponse;
+import com.exchange.rateapi.entity.SpecificDateResponse;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
@@ -8,7 +8,7 @@ import static io.restassured.RestAssured.given;
 
 public class SpecificDateEndpoint {
 
-    public SpecificDateResponse getSpecificDateResponse(String URL, String date,String accessKey) {
+    public SpecificDateResponse getSpecificDateResponse(String URL, String date, String accessKey) {
         String url = URL.concat(date);
         System.out.println(url);
         Response response = given()

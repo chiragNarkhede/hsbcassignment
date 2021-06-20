@@ -4,7 +4,7 @@ Feature: Rates API for Specific date Foreign Exchange rates
   Background:
     Given the rate API for specific date is available
 
-  @smoke @regression
+ @smoke @regression
   Scenario: Verify rates API response status for specific date.
     Then the response status code for date should be 200
 

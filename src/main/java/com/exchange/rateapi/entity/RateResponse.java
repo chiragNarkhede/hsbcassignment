@@ -1,4 +1,4 @@
-package com.exchange.rateapi.common;
+package com.exchange.rateapi.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;

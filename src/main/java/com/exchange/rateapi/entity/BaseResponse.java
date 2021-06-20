@@ -1,4 +1,4 @@
-package com.exchange.rateapi.common;
+package com.exchange.rateapi.entity;
 
 import lombok.Getter;
 import lombok.Setter;

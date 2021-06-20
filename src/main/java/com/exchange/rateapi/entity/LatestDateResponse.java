@@ -1,8 +1,5 @@
-package com.exchange.rateapi.api.specificDate;
+package com.exchange.rateapi.entity;
 
-import com.exchange.rateapi.api.latestDate.LatestDateResponse;
-import com.exchange.rateapi.common.BaseResponse;
-import com.exchange.rateapi.common.RateResponse;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,9 +9,10 @@ import lombok.ToString;
 @Setter
 @ToString
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SpecificDateResponse extends BaseResponse {
+public class LatestDateResponse extends BaseResponse {
+
     private String success;
-    private String historical;
+    private String base;
     private String date;
     private RateResponse rates;
     private Errors error;

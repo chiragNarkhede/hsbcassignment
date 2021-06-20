@@ -1,7 +1,7 @@
 package stepsDefinations;
 
-import com.exchange.rateapi.api.latestDate.LatestDateEndpoint;
-import com.exchange.rateapi.api.latestDate.LatestDateResponse;
+import com.exchange.rateapi.client.LatestDateEndpoint;
+import com.exchange.rateapi.entity.LatestDateResponse;
 import com.exchange.rateapi.testData.TestData;
 import com.exchange.rateapi.utils.CommonUtils;
 import io.cucumber.java.en.And;
@@ -56,5 +56,19 @@ public class LatestRateSteps {
         Assert.assertEquals(latestDateResponseForIncorrectURL.getError().getMessage(),
                 "You have not supplied a valid API Access Key. [Technical Support: support@apilayer.com]",
                 "Incorrect Error Message.");
+    }
+
+    @Then("the exchange rate API should through error for incorrect symbol")
+    public void theExchangeRateAPIShouldThroughError() {
+        Assert.assertEquals(latestDateEndpoint.getResponseAsPerSymbol(url,"IN",correctAccessKey).getError().getCode(),
+                "invalid_currency_codes",
+                "Error code did not matched");
+    }
+
+    @Then("the exchange rate API should through error for empty symbol")
+    public void theExchangeRateAPIShouldThroughErrorForEmptySymbol() {
+        Assert.assertEquals(latestDateEndpoint.getResponseAsPerSymbol(url," ",correctAccessKey).getError().getCode(),
+                "invalid_currency_codes",
+                "Error code did not matched");
     }
 }

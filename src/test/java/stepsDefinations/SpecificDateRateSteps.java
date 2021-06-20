@@ -1,7 +1,7 @@
 package stepsDefinations;
 
-import com.exchange.rateapi.api.specificDate.SpecificDateEndpoint;
-import com.exchange.rateapi.api.specificDate.SpecificDateResponse;
+import com.exchange.rateapi.client.SpecificDateEndpoint;
+import com.exchange.rateapi.entity.SpecificDateResponse;
 import com.exchange.rateapi.constants.StatusCode;
 import com.exchange.rateapi.testData.TestData;
 import com.exchange.rateapi.utils.CommonUtils;
